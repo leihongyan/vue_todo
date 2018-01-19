@@ -1,0 +1,23 @@
+{
+    "name": "vue_todo",
+    "version": "1.0.0",
+    "description": "用vue做的TODOLIST，练习",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js",
+        "dev": "webpack-dev-server --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leihongyan/vue_todo.git"
+    },
+    "keywords": [
+        "vue"
+    ],
+    "author": "leihongyan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/leihongyan/vue_todo/issues"
+    },
+ 
