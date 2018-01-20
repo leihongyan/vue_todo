@@ -12,7 +12,11 @@
       :key="todo.id"
       @del="deleteTodo"
       ></item>
-    <tabs :filter='filter'></tabs>
+    <tabs 
+      :filter='filter' 
+      :todos="todos"
+      
+    ></tabs>
   </section>
 </template>
 
@@ -34,11 +38,14 @@ export default {
   },
   methods:{
     addTodo(e) {
-      this.todos.unshift({
-        id:id++,
-        content:e.target.value.trim(),
-        completed:false
-      })
+      if(e.target.value.trim()!=''){
+        this.todos.unshift({
+          id:id++,
+          content:e.target.value.trim(),
+          completed:false
+        })
+      }
+      
       e.target.value=''
     },
     deleteTodo(id) {
