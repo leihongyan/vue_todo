@@ -20,5 +20,8 @@
     "bugs": {
         "url": "https://github.com/leihongyan/vue_todo/issues"
     },
-    "homepage": "https://github.com/leihongyan/vue_todo#readme"
+    "homepage": "https://github.com/leihongyan/vue_todo#readme",
+    "dependencies": {
+        "extract-text-webpack-plugin": "^3.0.2"
+    }
 }

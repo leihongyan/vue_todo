@@ -8,14 +8,15 @@
     >
     <item 
       :todo="todo"
-      v-for="todo in todos"
+      v-for="todo in filteredTodos"
       :key="todo.id"
       @del="deleteTodo"
       ></item>
     <tabs 
       :filter='filter' 
       :todos="todos"
-      
+      @toggle='toggleFilter'
+      @clearAll='clearAllCompleted'
     ></tabs>
   </section>
 </template>
@@ -36,6 +37,16 @@ export default {
     Item,
     Tabs
   },
+  computed:{
+    filteredTodos() {
+      if(this.filter==='all'){
+        return this.todos
+      }
+      const completed=this.filter==='completed'
+      return this.todos.filter(todo=>completed ===todo.completed)
+      
+    }
+  },
   methods:{
     addTodo(e) {
       if(e.target.value.trim()!=''){
@@ -50,6 +61,12 @@ export default {
     },
     deleteTodo(id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id===id ),1)
+    },
+    toggleFilter(state){
+      this.filter=state
+    },
+    clearAllCompleted() {
+      this.todos=this.todos.filter(todo=>!todo.completed)
     }
   }
 }
